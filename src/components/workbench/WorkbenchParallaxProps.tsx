@@ -19,7 +19,7 @@ export const WorkbenchParallaxProps: React.FC = () => {
           2. REALISTIC OVERHEAD TOP-DOWN TASK/BENCH LAMP (Top-Left Corner, Absolute)
          ========================================================================= */}
       <div
-        className="hidden xl:block absolute top-0 left-0 pointer-events-auto"
+        className="hidden md:block absolute top-0 left-0 pointer-events-auto"
         data-inspectable="true"
         data-inspect-label="OVERHEAD 5000K LED TASK LAMP // DIE-CAST ALUMINUM"
         style={{
@@ -135,7 +135,7 @@ export const WorkbenchParallaxProps: React.FC = () => {
       {/* =========================================================================
           3. 1:1 SCALE AUTHENTIC LTT SCREWDRIVER (Top-Right Flank, Absolute)
          ========================================================================= */}
-      <div className="hidden 2xl:block absolute top-[120px] right-7 pointer-events-auto z-20">
+      <div className="hidden lg:block absolute top-[120px] right-3 sm:right-6 xl:right-10 pointer-events-auto z-20">
         <LttScrewdriver />
       </div>
 
@@ -143,7 +143,7 @@ export const WorkbenchParallaxProps: React.FC = () => {
           4. ESD-15 CURVED TWEEZERS (Left Flank, Absolute)
          ========================================================================= */}
       <div
-        className="hidden 2xl:block absolute top-[360px] left-6 pointer-events-auto cursor-crosshair -rotate-6"
+        className="hidden lg:block absolute top-[360px] left-3 sm:left-6 pointer-events-auto cursor-crosshair -rotate-6"
         data-inspectable="true"
         data-inspect-label="ESD-15 CURVED ANTI-STATIC TWEEZERS"
         style={{
@@ -193,7 +193,7 @@ export const WorkbenchParallaxProps: React.FC = () => {
           5. DISASSEMBLED LAPTOP BOTTOM HALF-CHASSIS (Right Flank Mid-Page, Absolute)
          ========================================================================= */}
       <div
-        className="hidden 2xl:block absolute top-[740px] -right-16 pointer-events-auto"
+        className="hidden xl:block absolute top-[740px] -right-16 pointer-events-auto"
         data-inspectable="true"
         data-inspect-label="DISASSEMBLED CHASSIS // COPPER HEATPIPE & MOTHERBOARD"
         style={{
