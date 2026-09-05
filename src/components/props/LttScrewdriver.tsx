@@ -13,397 +13,334 @@ export const LttScrewdriver: React.FC<LttScrewdriverProps> = ({
 }) => {
   const isVertical = orientation === 'vertical';
 
+  // 1:1 Real-World Scale: Total length 220px, max handle width 36px (approx 6:1 aspect ratio)
   return (
     <div
       data-inspectable="true"
-      data-inspect-label="OFFICIAL LTT RATCHETING SCREWDRIVER // BLACK & ORANGE 1:1"
+      data-inspect-label="OFFICIAL LTT RATCHETING SCREWDRIVER // 1:1 PHYSICAL SCALE"
       className={`relative select-none pointer-events-auto cursor-crosshair ${className}`}
       style={{
-        width: isVertical ? '96px' : '640px',
-        height: isVertical ? '640px' : '96px',
+        width: isVertical ? '48px' : '230px',
+        height: isVertical ? '230px' : '48px',
         ...style,
       }}
     >
       <svg
-        viewBox={isVertical ? '0 0 96 640' : '0 0 640 96'}
+        viewBox={isVertical ? '0 0 48 230' : '0 0 230 48'}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
         style={{
           filter:
-            'drop-shadow(0 14px 20px rgba(0, 0, 0, 0.75)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
+            'drop-shadow(2px 8px 12px rgba(0, 0, 0, 0.75)) drop-shadow(6px 16px 24px rgba(0, 0, 0, 0.5))',
         }}
       >
         <defs>
           {/* =================================================================
-              1. CONTACT OCCLUSION SHADOWS
+              1. CONTACT OCCLUSION SHADOWS UNDERNEATH
              ================================================================= */}
-          <radialGradient id="ao-handle" cx="50%" cy="50%" r="50%">
+          <linearGradient id="ltt-contact-shadow-1to1" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#000000" stopOpacity="0.8" />
-            <stop offset="60%" stopColor="#000000" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-          </radialGradient>
-
-          <linearGradient id="ao-linear" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#000000" stopOpacity="0.75" />
             <stop offset="100%" stopColor="#000000" stopOpacity="0" />
           </linearGradient>
 
           {/* =================================================================
-              2. PH2 S2 STEEL BIT (DARK PHOSPHATE MATTE FINISH)
+              2. S2 PH2 STEEL BIT (DARK PHOSPHATE COATING)
              ================================================================= */}
-          <linearGradient id="s2-bit-metal" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3E4756" />
-            <stop offset="25%" stopColor="#2A313C" />
-            <stop offset="65%" stopColor="#181D24" />
-            <stop offset="100%" stopColor="#0B0E12" />
-          </linearGradient>
-
-          {/* =================================================================
-              3. HIGH-GLOSS CHROMED SHAFT (STEEL MIRROR POLISH)
-             ================================================================= */}
-          <linearGradient id="chrome-mirror-shaft" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#E2E8F0" />
-            <stop offset="12%" stopColor="#FFFFFF" />
-            <stop offset="26%" stopColor="#F1F5F9" />
-            <stop offset="48%" stopColor="#CBD5E1" />
-            <stop offset="72%" stopColor="#64748B" />
-            <stop offset="90%" stopColor="#334155" />
-            <stop offset="100%" stopColor="#1E293B" />
-          </linearGradient>
-
-          <linearGradient id="chrome-collar-bevel" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="35%" stopColor="#CBD5E1" />
-            <stop offset="70%" stopColor="#475569" />
-            <stop offset="100%" stopColor="#1E293B" />
-          </linearGradient>
-
-          {/* Authentic CNC Diamond Knurling Texture */}
-          <pattern id="knurl-pattern-1to1" width="3" height="3" patternUnits="userSpaceOnUse">
-            <path d="M0 3 L3 0 M0 0 L3 3" stroke="#475569" strokeWidth="0.75" />
-            <path d="M0 3 L3 0 M0 0 L3 3" stroke="#FFFFFF" strokeWidth="0.3" strokeOpacity="0.7" />
-          </pattern>
-
-          {/* =================================================================
-              4. COMPOSITE RATCHET SELECTOR RING
-             ================================================================= */}
-          <linearGradient id="ratchet-matte-body" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#333A45" />
-            <stop offset="16%" stopColor="#485261" />
-            <stop offset="35%" stopColor="#2B323D" />
-            <stop offset="65%" stopColor="#1A1F26" />
-            <stop offset="90%" stopColor="#101318" />
-            <stop offset="100%" stopColor="#080A0C" />
-          </linearGradient>
-
-          <linearGradient id="ratchet-front-chamfer" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#4B5563" />
-            <stop offset="30%" stopColor="#2D3748" />
-            <stop offset="80%" stopColor="#181D26" />
+          <linearGradient id="bit-steel-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#475262" />
+            <stop offset="25%" stopColor="#2D3540" />
+            <stop offset="65%" stopColor="#1B2028" />
             <stop offset="100%" stopColor="#0D1015" />
           </linearGradient>
 
           {/* =================================================================
-              5. SIGNATURE LTT ORANGE ACCENT WASHER RING
+              3. HIGH-GLOSS CHROMED SHAFT (MIRROR STEEL POLISH)
              ================================================================= */}
-          <linearGradient id="ltt-orange-accent-ring" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="chrome-shaft-1to1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#E2E8F0" />
+            <stop offset="15%" stopColor="#FFFFFF" />
+            <stop offset="30%" stopColor="#F1F5F9" />
+            <stop offset="55%" stopColor="#94A3B8" />
+            <stop offset="80%" stopColor="#475569" />
+            <stop offset="100%" stopColor="#1E293B" />
+          </linearGradient>
+
+          {/* Knurling Grid Pattern for Finger Twirling Collar */}
+          <pattern id="knurl-mesh" width="2.4" height="2.4" patternUnits="userSpaceOnUse">
+            <path d="M0 2.4 L2.4 0 M0 0 L2.4 2.4" stroke="#475569" strokeWidth="0.6" />
+            <path d="M0 2.4 L2.4 0 M0 0 L2.4 2.4" stroke="#FFFFFF" strokeWidth="0.25" strokeOpacity="0.5" />
+          </pattern>
+
+          {/* =================================================================
+              4. COMPOSITE MATTE BLACK RATCHET SELECTOR RING
+             ================================================================= */}
+          <linearGradient id="ratchet-ring-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#374151" />
+            <stop offset="20%" stopColor="#4B5563" />
+            <stop offset="45%" stopColor="#28303C" />
+            <stop offset="75%" stopColor="#171C23" />
+            <stop offset="100%" stopColor="#0B0D11" />
+          </linearGradient>
+
+          {/* =================================================================
+              5. SIGNATURE LTT VIBRANT ORANGE ACCENT WASHER
+             ================================================================= */}
+          <linearGradient id="ltt-orange-ring-1to1" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#FFA662" />
-            <stop offset="25%" stopColor="#FF731D" />
-            <stop offset="60%" stopColor="#DE4B00" />
-            <stop offset="88%" stopColor="#9C2E00" />
-            <stop offset="100%" stopColor="#5E1A00" />
+            <stop offset="25%" stopColor="#FF7019" />
+            <stop offset="65%" stopColor="#DE4B00" />
+            <stop offset="100%" stopColor="#661F00" />
           </linearGradient>
 
           {/* =================================================================
               6. ERGONOMIC MATTE BLACK TRI-LOBE HANDLE
              ================================================================= */}
-          {/* Upper Facet (Daylight Ambient Reflection) */}
-          <linearGradient id="handle-facet-upper" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="handle-shell-grad" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#38414E" />
-            <stop offset="14%" stopColor="#4D5666" />
-            <stop offset="32%" stopColor="#323945" />
-            <stop offset="65%" stopColor="#1E232B" />
-            <stop offset="100%" stopColor="#12151B" />
+            <stop offset="18%" stopColor="#4D5666" />
+            <stop offset="38%" stopColor="#323945" />
+            <stop offset="70%" stopColor="#1E232B" />
+            <stop offset="100%" stopColor="#0E1116" />
           </linearGradient>
 
-          {/* Lower Facet (Soft Ground Drop Shade) */}
-          <linearGradient id="handle-facet-lower" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1C2027" />
-            <stop offset="40%" stopColor="#13161C" />
-            <stop offset="85%" stopColor="#0B0D10" />
-            <stop offset="100%" stopColor="#050608" />
-          </linearGradient>
-
-          {/* Specular Longitudinal Light Sweep */}
-          <linearGradient id="handle-specular-ridge" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient id="handle-top-specular" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-            <stop offset="15%" stopColor="#FFFFFF" stopOpacity="0.08" />
-            <stop offset="45%" stopColor="#FFFFFF" stopOpacity="0.32" />
-            <stop offset="75%" stopColor="#FFFFFF" stopOpacity="0.14" />
+            <stop offset="20%" stopColor="#FFFFFF" stopOpacity="0.28" />
+            <stop offset="70%" stopColor="#FFFFFF" stopOpacity="0.12" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </linearGradient>
 
           {/* =================================================================
-              7. SIGNATURE LTT VIBRANT ORANGE ENDCAP
+              7. SIGNATURE LTT VIBRANT ORANGE ROTATING ENDCAP
              ================================================================= */}
-          <linearGradient id="ltt-orange-endcap-body" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="orange-endcap-grad" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#FFA662" />
-            <stop offset="15%" stopColor="#FF7A24" />
-            <stop offset="45%" stopColor="#EB5300" />
-            <stop offset="75%" stopColor="#B33600" />
-            <stop offset="92%" stopColor="#802300" />
+            <stop offset="20%" stopColor="#FF7A24" />
+            <stop offset="50%" stopColor="#EB5300" />
+            <stop offset="80%" stopColor="#B33600" />
             <stop offset="100%" stopColor="#4A1400" />
-          </linearGradient>
-
-          <linearGradient id="orange-dome-radial-highlight" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#FFE4D1" stopOpacity="0.85" />
-            <stop offset="45%" stopColor="#FFAA75" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#D94800" stopOpacity="0" />
           </linearGradient>
         </defs>
 
-        {/* Rotational Container: maps horizontal 640x96 coordinates to 96x640 with tip pointing TOP */}
-        <g transform={isVertical ? 'rotate(90) translate(0, -96)' : undefined}>
-          {/* =================================================================
-              1. CONTACT DROP SHADOWS UNDERNEATH
-             ================================================================= */}
-          <ellipse cx="450" cy="62" rx="140" ry="12" fill="url(#ao-handle)" opacity="0.8" />
-          <ellipse cx="300" cy="58" rx="40" ry="7" fill="url(#ao-linear)" opacity="0.6" />
-          <ellipse cx="160" cy="54" rx="80" ry="5" fill="url(#ao-linear)" opacity="0.4" />
+        {isVertical ? (
+          /* =================================================================
+              VERTICAL LAYOUT (TIP FACING UP / TOP)
+              Total height: 230px, Total width: 48px
+              Center X = 24px
+             ================================================================= */
+          <g>
+            {/* Ambient Occlusion Ground Contact Shadow */}
+            <ellipse cx="27" cy="155" rx="16" ry="50" fill="url(#ltt-contact-shadow-1to1)" opacity="0.6" />
+            <ellipse cx="26" cy="70" rx="8" ry="35" fill="url(#ltt-contact-shadow-1to1)" opacity="0.35" />
 
-          {/* =================================================================
-              2. DARK S2 PH2 PHILLIPS BIT (TIP AT LEFT / TOP)
-             ================================================================= */}
-          {/* Tapered Cross Tip */}
-          <path
-            d="M 36 48 L 48 43 L 58 43.5 L 58 52.5 L 48 53 Z"
-            fill="url(#s2-bit-metal)"
-          />
-          {/* Cutaway Phillips Flutes */}
-          <path d="M 36 48 L 46 45 L 56 46 L 46 48 L 56 50 L 46 51 Z" fill="#0E1116" />
-          {/* Specular Edge Highlights */}
-          <line x1="38" y1="48" x2="58" y2="48" stroke="#94A3B8" strokeWidth="0.8" strokeOpacity="0.7" />
-          <line x1="48" y1="43.5" x2="48" y2="52.5" stroke="#1E293B" strokeWidth="0.7" />
+            {/* 1. Dark Phosphate S2 PH2 Phillips Bit (y: 6 to 20) */}
+            <path
+              d="M 24 6 L 21.5 13 L 21 18 L 27 18 L 26.5 13 Z"
+              fill="url(#bit-steel-grad)"
+              stroke="#11151A"
+              strokeWidth="0.6"
+            />
+            {/* Flute cutaways */}
+            <path d="M 24 6 L 23 11 L 21.5 14 L 24 13 L 26.5 14 L 25 11 Z" fill="#0C0E12" />
+            <line x1="24" y1="6" x2="24" y2="18" stroke="#94A3B8" strokeWidth="0.6" strokeOpacity="0.6" />
 
-          {/* 1/4" Hex Shank Collar */}
-          <rect x="58" y="43" width="8" height="10" fill="url(#s2-bit-metal)" />
-          <line x1="58" y1="44" x2="66" y2="44" stroke="#CBD5E1" strokeWidth="0.6" strokeOpacity="0.6" />
+            {/* Bit Shank Base (y: 18 to 22) */}
+            <rect x="21" y="18" width="6" height="4" fill="url(#bit-steel-grad)" stroke="#11151A" strokeWidth="0.5" />
 
-          {/* =================================================================
-              3. STEPPED POLISHED CHROME SHAFT WITH KNURLED TWIRL ZONE
-             ================================================================= */}
-          {/* 1. Front Smooth Polished Barrel */}
-          <rect
-            x="66"
-            y="41"
-            width="94"
-            height="14"
-            rx="1"
-            fill="url(#chrome-mirror-shaft)"
-          />
-          {/* Razor-Sharp Specular Highlights */}
-          <line x1="68" y1="43" x2="158" y2="43" stroke="#FFFFFF" strokeWidth="1.6" strokeLinecap="round" />
-          <line x1="68" y1="45" x2="158" y2="45" stroke="#F8FAFC" strokeWidth="0.8" strokeOpacity="0.75" />
-          {/* Underside Reflected Shadow */}
-          <line x1="67" y1="53.5" x2="159" y2="53.5" stroke="#1E293B" strokeWidth="1" strokeOpacity="0.8" />
+            {/* 2. Front Smooth Polished Chrome Shaft (y: 22 to 58) */}
+            <rect
+              x="20.5"
+              y="22"
+              width="7"
+              height="36"
+              rx="0.5"
+              fill="url(#chrome-shaft-1to1)"
+              stroke="#64748B"
+              strokeWidth="0.5"
+            />
+            {/* Razor-Sharp Chrome Specular Streak */}
+            <line x1="22" y1="22" x2="22" y2="58" stroke="#FFFFFF" strokeWidth="0.9" strokeLinecap="round" />
 
-          {/* Stepped Transition Shoulder */}
-          <rect x="160" y="41.5" width="4" height="13" rx="0.5" fill="url(#chrome-collar-bevel)" />
+            {/* Stepped Transition Shoulder (y: 58 to 60) */}
+            <rect x="20" y="58" width="8" height="2" rx="0.3" fill="url(#chrome-shaft-1to1)" stroke="#475569" strokeWidth="0.4" />
 
-          {/* 2. Precision Diamond Knurled Twirl Zone */}
-          <rect
-            x="164"
-            y="42"
-            width="78"
-            height="12"
-            fill="url(#chrome-mirror-shaft)"
-          />
-          <rect
-            x="164"
-            y="42"
-            width="78"
-            height="12"
-            fill="url(#knurl-pattern-1to1)"
-          />
-          {/* Knurl Specular Catch */}
-          <line x1="164" y1="43.5" x2="242" y2="43.5" stroke="#FFFFFF" strokeWidth="0.9" strokeOpacity="0.55" />
-          <line x1="164" y1="52.5" x2="242" y2="52.5" stroke="#0F172A" strokeWidth="0.8" strokeOpacity="0.65" />
+            {/* 3. Diamond Knurled Twirling Shaft Collar (y: 60 to 86) */}
+            <rect x="20.5" y="60" width="7" height="26" fill="url(#chrome-shaft-1to1)" stroke="#475569" strokeWidth="0.5" />
+            <rect x="20.5" y="60" width="7" height="26" fill="url(#knurl-mesh)" />
+            {/* Knurl Light Highlight */}
+            <line x1="22" y1="60" x2="22" y2="86" stroke="#FFFFFF" strokeWidth="0.7" strokeOpacity="0.5" />
 
-          {/* 3. Rear Stepped Collar Entering Ratchet */}
-          <rect x="242" y="41.5" width="6" height="13" rx="0.5" fill="url(#chrome-collar-bevel)" />
-          <rect x="248" y="41" width="18" height="14" fill="url(#chrome-mirror-shaft)" />
-          <line x1="248" y1="43" x2="266" y2="43" stroke="#FFFFFF" strokeWidth="1.4" strokeLinecap="round" />
-          <rect x="264" y="40" width="3" height="16" rx="0.5" fill="#1E293B" />
+            {/* 4. Rear Stepped Shaft Collar Entering Ratchet (y: 86 to 96) */}
+            <rect x="20" y="86" width="8" height="2" rx="0.3" fill="url(#chrome-shaft-1to1)" stroke="#475569" strokeWidth="0.4" />
+            <rect x="20.5" y="88" width="7" height="8" fill="url(#chrome-shaft-1to1)" stroke="#64748B" strokeWidth="0.5" />
+            <line x1="22" y1="88" x2="22" y2="96" stroke="#FFFFFF" strokeWidth="0.9" />
 
-          {/* =================================================================
-              4. TEXTURED RATCHET SELECTOR RING (COMPOSITE BLACK)
-             ================================================================= */}
-          {/* Front Chamfer Transition */}
-          <path
-            d="M 267 38 L 278 33 L 278 63 L 267 58 Z"
-            fill="url(#ratchet-front-chamfer)"
-          />
-          <line x1="268" y1="38" x2="278" y2="33" stroke="#64748B" strokeWidth="0.8" strokeOpacity="0.65" />
+            {/* 5. Composite Matte Black Ratchet Selector Ring (y: 96 to 120) */}
+            {/* Front Chamfer (y: 96 to 100) */}
+            <path
+              d="M 20 96 L 12 100 L 36 100 L 28 96 Z"
+              fill="url(#ratchet-ring-grad)"
+              stroke="#1F2937"
+              strokeWidth="0.5"
+            />
+            {/* Ratchet Ring Body (y: 100 to 120, width 24px: x: 12 to 36) */}
+            <rect
+              x="12"
+              y="100"
+              width="24"
+              height="20"
+              rx="1"
+              fill="url(#ratchet-ring-grad)"
+              stroke="#111827"
+              strokeWidth="0.6"
+            />
+            {/* Top Curvature Specular Highlight */}
+            <line x1="15" y1="100" x2="15" y2="120" stroke="#FFFFFF" strokeWidth="0.8" strokeOpacity="0.3" />
 
-          {/* Main Cylindrical Ratchet Body */}
-          <rect
-            x="278"
-            y="32"
-            width="56"
-            height="32"
-            rx="1.5"
-            fill="url(#ratchet-matte-body)"
-          />
-          {/* Top Curvature Highlight */}
-          <path
-            d="M 278 34.5 L 334 34.5"
-            stroke="#FFFFFF"
-            strokeWidth="1.2"
-            strokeOpacity="0.35"
-          />
+            {/* Vertical Fluted Grip Splines (Horizontal Lines across the ring) */}
+            {[103, 106, 109, 112, 115, 118].map((y) => (
+              <g key={y}>
+                <line x1="13" y1={y} x2="35" y2={y} stroke="#090B0E" strokeWidth="1.2" />
+                <line x1="13" y1={y + 0.4} x2="35" y2={y + 0.4} stroke="#6B7280" strokeWidth="0.5" strokeOpacity="0.4" />
+              </g>
+            ))}
 
-          {/* Precision Fluted Grip Splines (Vertical Grooves) */}
-          {[283, 288, 293, 298, 303, 308, 313, 318, 323, 328].map((x) => (
-            <g key={x}>
-              <line x1={x} y1="35" x2={x} y2="61" stroke="#080A0D" strokeWidth="1.8" />
-              <line
-                x1={x + 0.8}
-                y1="35"
-                x2={x + 0.8}
-                y2="61"
-                stroke="#6B7280"
-                strokeWidth="0.7"
-                strokeOpacity="0.5"
-              />
+            {/* Ratchet Direction Indicator Chevron (< | >) in Center */}
+            <g transform="translate(24, 110)" opacity="0.65">
+              <path d="M -4 2 L -2 0 L -2 4 Z" fill="#94A3B8" />
+              <line x1="0" y1="-2" x2="0" y2="2" stroke="#E2E8F0" strokeWidth="0.8" />
+              <path d="M 4 2 L 2 0 L 2 4 Z" fill="#94A3B8" />
             </g>
-          ))}
 
-          {/* Ratchet Direction Indicator Chevron (< | >) */}
-          <g transform="translate(301, 45)" opacity="0.7">
-            <path d="M 0 3 L 4 0 L 4 6 Z" fill="#94A3B8" />
-            <rect x="6" y="0" width="1.5" height="6" fill="#E2E8F0" />
-            <path d="M 13 3 L 9 0 L 9 6 Z" fill="#94A3B8" />
+            {/* 6. Signature LTT Vibrant Orange Accent Washer Ring (y: 120 to 123) */}
+            <rect
+              x="13"
+              y="120"
+              width="22"
+              height="3"
+              rx="0.5"
+              fill="url(#ltt-orange-ring-1to1)"
+              stroke="#7C2D12"
+              strokeWidth="0.4"
+            />
+            <line x1="14" y1="120.5" x2="34" y2="120.5" stroke="#FED7AA" strokeWidth="0.5" strokeOpacity="0.8" />
+
+            {/* 7. Ergonomic Contoured Matte Black Handle (y: 123 to 198) */}
+            {/* Exact Silhouette Matching Reference Photo */}
+            <path
+              d="M 13 123
+                 C 12 132, 10 144, 9 160
+                 C 8 178, 10 192, 11 198
+                 L 37 198
+                 C 38 192, 40 178, 39 160
+                 C 38 144, 36 132, 35 123
+                 Z"
+              fill="url(#handle-shell-grad)"
+              stroke="#181F2A"
+              strokeWidth="0.8"
+            />
+
+            {/* Longitudinal Light-Catching Specular Ridge */}
+            <path
+              d="M 17 125
+                 C 15 138, 14 158, 16 195"
+              stroke="#FFFFFF"
+              strokeWidth="1.2"
+              strokeOpacity="0.2"
+              strokeLinecap="round"
+            />
+
+            {/* Subtle Tri-Lobe Center Facet Shadow Line */}
+            <path
+              d="M 24 123 C 24 145, 24 175, 24 198"
+              stroke="rgba(0, 0, 0, 0.4)"
+              strokeWidth="1"
+            />
+
+            {/* Precision Cartridge Pull Seam (y: 198) */}
+            <line x1="11" y1="198" x2="37" y2="198" stroke="#05070A" strokeWidth="1.2" />
+            <line x1="11" y1="198.6" x2="37" y2="198.6" stroke="#374151" strokeWidth="0.4" strokeOpacity="0.6" />
+
+            {/* 8. Signature LTT Vibrant Orange Rotating Endcap (y: 199 to 222) */}
+            {/* Orange Endcap Main Dome */}
+            <path
+              d="M 11 199
+                 L 11 212
+                 C 12 219, 17 222, 24 222
+                 C 31 222, 36 219, 37 212
+                 L 37 199
+                 Z"
+              fill="url(#orange-endcap-grad)"
+              stroke="#9A3412"
+              strokeWidth="0.7"
+            />
+
+            {/* Vertical Tactile Grip Flutes on Orange Endcap */}
+            {[15, 19, 24, 29, 33].map((x) => (
+              <g key={x}>
+                <line x1={x} y1="202" x2={x} y2="216" stroke="#7C2D12" strokeWidth="1" strokeLinecap="round" />
+                <line x1={x + 0.4} y1="202" x2={x + 0.4} y2="216" stroke="#FED7AA" strokeWidth="0.4" strokeOpacity="0.6" />
+              </g>
+            ))}
+
+            {/* Rounded End Dome Debossed Accent Circle */}
+            <ellipse cx="24" cy="220" rx="4" ry="1.2" fill="#7C2D12" opacity="0.65" />
           </g>
+        ) : (
+          /* =================================================================
+              HORIZONTAL LAYOUT
+              Total width: 230px, Total height: 48px
+              Center Y = 24px
+             ================================================================= */
+          <g>
+            {/* Ambient Occlusion Ground Contact Shadow */}
+            <ellipse cx="155" cy="27" rx="50" ry="16" fill="url(#ltt-contact-shadow-1to1)" opacity="0.6" />
 
-          {/* =================================================================
-              5. SIGNATURE LTT VIBRANT ORANGE ACCENT WASHER RING
-             ================================================================= */}
-          <rect
-            x="334"
-            y="33"
-            width="5.5"
-            height="30"
-            rx="1"
-            fill="url(#ltt-orange-accent-ring)"
-          />
-          <line x1="335" y1="34" x2="335" y2="62" stroke="#FFD8B3" strokeWidth="0.9" strokeOpacity="0.9" />
-          <line x1="339" y1="34" x2="339" y2="62" stroke="#4A1400" strokeWidth="0.8" />
+            {/* 1. Dark Bit (x: 6 to 22) */}
+            <path d="M 6 24 L 13 21.5 L 18 21 L 18 27 L 13 26.5 Z" fill="url(#bit-steel-grad)" stroke="#11151A" strokeWidth="0.6" />
+            <rect x="18" y="21" width="4" height="6" fill="url(#bit-steel-grad)" stroke="#11151A" strokeWidth="0.5" />
 
-          {/* =================================================================
-              6. CONTOURED ERGONOMIC MATTE BLACK HANDLE
-             ================================================================= */}
-          {/* 1. Upper Light-Catching Facet (Exact Ergonomic Profile from Photograph) */}
-          <path
-            d="M 339.5 33.5
-               C 346 33.5, 355 34.5, 368 35.5
-               C 382 36.5, 396 30, 420 29
-               L 556 29
-               C 564 29, 570 31, 573 34
-               L 573 48
-               L 339.5 48
-               Z"
-            fill="url(#handle-facet-upper)"
-          />
+            {/* 2. Smooth Chrome Shaft (x: 22 to 58) */}
+            <rect x="22" y="20.5" width="36" height="7" rx="0.5" fill="url(#chrome-shaft-1to1)" stroke="#64748B" strokeWidth="0.5" />
+            <line x1="22" y1="22" x2="58" y2="22" stroke="#FFFFFF" strokeWidth="0.9" strokeLinecap="round" />
 
-          {/* 2. Lower Underbelly Facet (Dark in Soft Ambient Shadow) */}
-          <path
-            d="M 339.5 48
-               L 573 48
-               L 573 62
-               C 570 65, 564 67, 556 67
-               L 420 67
-               C 396 66, 382 59.5, 368 60.5
-               C 355 61.5, 346 62.5, 339.5 62.5
-               Z"
-            fill="url(#handle-facet-lower)"
-          />
+            {/* Stepped Collar */}
+            <rect x="58" y="20" width="2" height="8" rx="0.3" fill="url(#chrome-shaft-1to1)" stroke="#475569" strokeWidth="0.4" />
 
-          {/* 3. Smooth Facet Apex Blend Line */}
-          <line
-            x1="342"
-            y1="48"
-            x2="572"
-            y2="48"
-            stroke="rgba(255, 255, 255, 0.09)"
-            strokeWidth="1.2"
-          />
+            {/* 3. Knurled Shaft Zone (x: 60 to 86) */}
+            <rect x="60" y="20.5" width="26" height="7" fill="url(#chrome-shaft-1to1)" stroke="#475569" strokeWidth="0.5" />
+            <rect x="60" y="20.5" width="26" height="7" fill="url(#knurl-mesh)" />
 
-          {/* 4. Top Soft Specular Sweep along Handle Arch */}
-          <path
-            d="M 345 35
-               C 370 36, 395 30.5, 425 30
-               L 550 30"
-            stroke="url(#handle-specular-ridge)"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-          />
+            {/* 4. Rear Collar (x: 86 to 96) */}
+            <rect x="86" y="20" width="2" height="8" rx="0.3" fill="url(#chrome-shaft-1to1)" stroke="#475569" strokeWidth="0.4" />
+            <rect x="88" y="20.5" width="8" height="7" fill="url(#chrome-shaft-1to1)" stroke="#64748B" strokeWidth="0.5" />
 
-          {/* 5. Precision Cartridge Pull Seam */}
-          <line x1="573" y1="29.5" x2="573" y2="66.5" stroke="#040608" strokeWidth="2" />
-          <line x1="574" y1="30" x2="574" y2="66" stroke="#334155" strokeWidth="0.6" strokeOpacity="0.65" />
+            {/* 5. Ratchet Selector Ring (x: 96 to 120) */}
+            <path d="M 96 20 L 100 12 L 100 36 L 96 28 Z" fill="url(#ratchet-ring-grad)" stroke="#1F2937" strokeWidth="0.5" />
+            <rect x="100" y="12" width="20" height="24" rx="1" fill="url(#ratchet-ring-grad)" stroke="#111827" strokeWidth="0.6" />
 
-          {/* =================================================================
-              7. SIGNATURE LTT VIBRANT ORANGE ROTATING ENDCAP
-             ================================================================= */}
-          {/* Main Orange Endcap D-Dome Body */}
-          <path
-            d="M 574 30.5
-               L 596 31
-               C 607 32, 616 38, 616 48
-               C 616 58, 607 64, 596 65
-               L 574 65.5
-               Z"
-            fill="url(#ltt-orange-endcap-body)"
-          />
+            {/* 6. Orange Accent Ring (x: 120 to 123) */}
+            <rect x="120" y="13" width="3" height="22" rx="0.5" fill="url(#ltt-orange-ring-1to1)" stroke="#7C2D12" strokeWidth="0.4" />
 
-          {/* Top Dome Specular Arc */}
-          <path
-            d="M 576 33
-               C 592 34, 608 39, 612 46"
-            stroke="url(#orange-dome-radial-highlight)"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
+            {/* 7. Ergonomic Black Handle (x: 123 to 198) */}
+            <path
+              d="M 123 13 C 132 12, 144 10, 160 9 C 178 8, 192 10, 198 11 L 198 37 C 192 38, 178 40, 160 39 C 144 38, 132 36, 123 35 Z"
+              fill="url(#handle-shell-grad)"
+              stroke="#181F2A"
+              strokeWidth="0.8"
+            />
+            <line x1="198" y1="11" x2="198" y2="37" stroke="#05070A" strokeWidth="1.2" />
 
-          {/* Tactile Pull Flutes / Grip Ribs on Orange Endcap */}
-          {[581, 587, 593, 599].map((x) => (
-            <g key={x}>
-              <line
-                x1={x}
-                y1="36"
-                x2={x}
-                y2="60"
-                stroke="#8A2400"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              <line
-                x1={x + 0.7}
-                y1="36"
-                x2={x + 0.7}
-                y2="60"
-                stroke="#FFAA70"
-                strokeWidth="0.8"
-                strokeLinecap="round"
-                strokeOpacity="0.75"
-              />
-            </g>
-          ))}
-
-          {/* Rear Dome Debossed Accent */}
-          <ellipse cx="613" cy="48" rx="2" ry="7" fill="#6B1B00" opacity="0.75" />
-        </g>
+            {/* 8. Orange Endcap (x: 199 to 222) */}
+            <path
+              d="M 199 11 L 212 11 C 219 12, 222 17, 222 24 C 222 31, 219 36, 212 37 L 199 37 Z"
+              fill="url(#orange-endcap-grad)"
+              stroke="#9A3412"
+              strokeWidth="0.7"
+            />
+          </g>
+        )}
       </svg>
     </div>
   );
