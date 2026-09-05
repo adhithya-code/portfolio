@@ -133,10 +133,10 @@ export const WorkbenchParallaxProps: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          3. 1:1 SCALE AUTHENTIC LTT SCREWDRIVER (Top-Right Flank, Absolute)
+          3. 1:1 SCALE AUTHENTIC LTT SCREWDRIVER (Right Side of Boxes, Tip Facing Top)
          ========================================================================= */}
-      <div className="hidden lg:block absolute top-[120px] right-3 sm:right-6 xl:right-10 pointer-events-auto z-20">
-        <LttScrewdriver />
+      <div className="hidden lg:block absolute top-[100px] right-2 sm:right-6 xl:right-10 2xl:right-14 pointer-events-auto z-20">
+        <LttScrewdriver orientation="vertical" />
       </div>
 
       {/* =========================================================================
