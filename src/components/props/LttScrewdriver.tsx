@@ -13,15 +13,15 @@ export const LttScrewdriver: React.FC<LttScrewdriverProps> = ({
 }) => {
   const isVertical = orientation === 'vertical';
 
-  // 1:1 Real-World Scale: Total length 220px, max handle width 36px (approx 6:1 aspect ratio)
+  // Prominent High-Visibility Scale (Preserving exact 6.0:1 real-world proportion)
   return (
     <div
       data-inspectable="true"
-      data-inspect-label="OFFICIAL LTT RATCHETING SCREWDRIVER // 1:1 PHYSICAL SCALE"
+      data-inspect-label="OFFICIAL LTT RATCHETING SCREWDRIVER // BLACK & ORANGE"
       className={`relative select-none pointer-events-auto cursor-crosshair ${className}`}
       style={{
-        width: isVertical ? '48px' : '230px',
-        height: isVertical ? '230px' : '48px',
+        width: isVertical ? '76px' : '360px',
+        height: isVertical ? '360px' : '76px',
         ...style,
       }}
     >
@@ -32,7 +32,7 @@ export const LttScrewdriver: React.FC<LttScrewdriverProps> = ({
         className="w-full h-full"
         style={{
           filter:
-            'drop-shadow(2px 8px 12px rgba(0, 0, 0, 0.75)) drop-shadow(6px 16px 24px rgba(0, 0, 0, 0.5))',
+            'drop-shadow(3px 10px 16px rgba(0, 0, 0, 0.75)) drop-shadow(8px 20px 30px rgba(0, 0, 0, 0.55))',
         }}
       >
         <defs>
