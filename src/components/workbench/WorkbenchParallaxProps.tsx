@@ -1,4 +1,5 @@
 import React from 'react';
+import { LttScrewdriver } from '../props/LttScrewdriver';
 
 export const WorkbenchParallaxProps: React.FC = () => {
   return (
@@ -132,97 +133,10 @@ export const WorkbenchParallaxProps: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          3. 100% VISIBLE CNC ANODIZED PRECISION SCREWDRIVER (Top-Right, Absolute)
+          3. 1:1 SCALE AUTHENTIC LTT SCREWDRIVER (Top-Right Flank, Absolute)
          ========================================================================= */}
-      <div
-        className="hidden 2xl:block absolute top-[130px] right-10 pointer-events-auto cursor-crosshair rotate-3"
-        data-inspectable="true"
-        data-inspect-label="iFixit PRECISION SCREWDRIVER // T5 TORX BIT"
-        style={{
-          filter: 'drop-shadow(4px 10px 18px rgba(0, 0, 0, 0.65))',
-        }}
-      >
-        <svg width="46" height="230" viewBox="0 0 46 230" fill="none">
-          {/* Smooth Rotating Swivel Top Cap (Gunmetal Anodized with Bevel Circle) */}
-          <rect x="12" y="3" width="22" height="13" rx="3" fill="url(#capGrad)" stroke="#64748B" strokeWidth="1" />
-          <circle cx="23" cy="9.5" r="3.5" fill="#334155" stroke="#94A3B8" strokeWidth="0.6" />
-          <rect x="17" y="16" width="12" height="5" fill="#0F172A" />
-
-          {/* Machined Anodized Aluminum Barrel */}
-          <rect x="14" y="21" width="18" height="42" rx="2" fill="url(#driverBarrelGrad)" stroke="#334155" strokeWidth="1" />
-
-          {/* Center Diamond Knurled High-Friction Tactile Grip Section */}
-          <rect x="13" y="63" width="20" height="60" fill="#0F172A" stroke="#475569" strokeWidth="1" />
-          {/* Knurl Diamond Crosshatch Pattern */}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <line
-              key={`kn1-${i}`}
-              x1="13"
-              y1={67 + i * 5}
-              x2="33"
-              y2={72 + i * 5}
-              stroke="rgba(255,255,255,0.25)"
-              strokeWidth="0.8"
-            />
-          ))}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <line
-              key={`kn2-${i}`}
-              x1="13"
-              y1={72 + i * 5}
-              x2="33"
-              y2={67 + i * 5}
-              stroke="rgba(255,255,255,0.25)"
-              strokeWidth="0.8"
-            />
-          ))}
-
-          {/* Lower Barrel Taper */}
-          <path d="M 14 123 L 32 123 L 28 152 L 18 152 Z" fill="url(#driverBarrelGrad)" stroke="#334155" strokeWidth="1" />
-
-          {/* Chuck Collet Collar with Grip Ring */}
-          <rect x="18" y="152" width="10" height="16" fill="#1E293B" stroke="#64748B" strokeWidth="1" />
-          <line x1="18" y1="160" x2="28" y2="160" stroke="#000" strokeWidth="1.2" />
-
-          {/* Chrome-Vanadium Magnetic Torx Bit Shank (T5 Bit) */}
-          <rect x="20.5" y="168" width="5" height="44" fill="url(#steelBitGrad)" stroke="#CBD5E1" strokeWidth="0.8" />
-
-          {/* Torx 6-Point Fluted Tip */}
-          <path d="M 20.5 212 L 25.5 212 L 24 224 L 22 224 Z" fill="#F1F5F9" stroke="#94A3B8" strokeWidth="0.8" />
-
-          {/* Stamped Laser Monospace Bit Markings */}
-          <text
-            x="23.5"
-            y="192"
-            fill="#0F172A"
-            fontSize="4.5"
-            fontFamily="monospace"
-            fontWeight="bold"
-            transform="rotate(90, 23.5, 192)"
-            textAnchor="middle"
-          >
-            T5-TORX // CR-V
-          </text>
-
-          <defs>
-            <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#475569" />
-              <stop offset="50%" stopColor="#334155" />
-              <stop offset="100%" stopColor="#1E293B" />
-            </linearGradient>
-            <linearGradient id="driverBarrelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#334155" />
-              <stop offset="35%" stopColor="#1E293B" />
-              <stop offset="70%" stopColor="#0F172A" />
-              <stop offset="100%" stopColor="#1E293B" />
-            </linearGradient>
-            <linearGradient id="steelBitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#F8FAFC" />
-              <stop offset="45%" stopColor="#CBD5E1" />
-              <stop offset="100%" stopColor="#94A3B8" />
-            </linearGradient>
-          </defs>
-        </svg>
+      <div className="hidden 2xl:block absolute top-[120px] right-7 pointer-events-auto z-20">
+        <LttScrewdriver />
       </div>
 
       {/* =========================================================================
